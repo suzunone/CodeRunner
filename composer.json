@@ -2,7 +2,7 @@
     "name": "suzunone/code-runner",
     "description": "code-runner from piza.io.(piza.io API unofficial wrapper.)",
     "type": "library",
-    "license": "BSD 3-Clause License",
+    "license": "BSD-3-Clause",
     "autoload": {
         "psr-4": {
             "Suzunone\\CodeRunner\\": "src/"
