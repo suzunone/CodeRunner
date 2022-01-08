@@ -4,4 +4,4 @@
 lines <- readLines(file('stdin'), n=1)
 
 cat(lines)
-]
+

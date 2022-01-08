@@ -72,6 +72,11 @@ class CordTemplateTest extends TestCase
         $obj = new CodeRunner();
 
         $outputCreate = $obj->create($code, $lang, $stdin, true, 200);
+        while ($outputCreate->is_running) {
+            $outputCreate = $outputCreate->status();
+            sleep(1);
+        }
+
         var_dump($outputCreate);
         $this->assertInstanceOf(CreateEntity::class, $outputCreate);
 
