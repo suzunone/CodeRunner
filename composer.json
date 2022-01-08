@@ -1,0 +1,27 @@
+{
+    "name": "suzunone/code-runner",
+    "description": "code-runner from piza.io",
+    "type": "library",
+    "license": "BSD 3-Clause License",
+    "autoload": {
+        "psr-4": {
+            "Suzunone\\CodeRunner\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "suzunone",
+            "email": "suzunone.eleven@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.4"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.9.1",
+        "mockery/mockery": "^1.4.4",
+        "phpunit/phpunit": "^9.5.10"
+    }
+}
