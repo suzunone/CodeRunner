@@ -17,6 +17,7 @@
 
 namespace Suzunone\CodeRunner;
 
+use ErrorException;
 use Suzunone\CodeRunner\Entities\Input\CreateEntity;
 use Suzunone\CodeRunner\Requests\PaizaIO\CreateRequest;
 
@@ -65,61 +66,116 @@ class CodeRunner
     public const LANG_MYSQL = 'mysql';
     public const LANG_RUST = 'rust';
     public const LANG_SCHEME = 'scheme';
-    public const LANG_COMMONLISP = 'commonlisp';
+    public const LANG_COMMON_LISP = 'commonlisp';
     public const LANG_NADESIKO = 'nadesiko';
     public const LANG_TYPESCRIPT = 'typescript';
     public const LANG_PLAIN = 'plain';
 
+    /**
+     * @var array - language constant => program language name
+     */
     public const LANGS = [
-        self::LANG_C,
-        self::LANG_CPP,
-        self::LANG_OBJECTIVE_C,
-        self::LANG_JAVA,
-        self::LANG_KOTLIN,
-        self::LANG_SCALA,
-        self::LANG_SWIFT,
-        self::LANG_CSHARP,
-        self::LANG_GO,
-        self::LANG_HASKELL,
-        self::LANG_ERLANG,
-        self::LANG_PERL,
-        self::LANG_PYTHON,
-        self::LANG_PYTHON3,
-        self::LANG_RUBY,
-        self::LANG_PHP,
-        self::LANG_BASH,
-        self::LANG_R,
-        self::LANG_JAVASCRIPT,
-        self::LANG_COFFEESCRIPT,
-        self::LANG_VB,
-        self::LANG_COBOL,
-        self::LANG_FSHARP,
-        self::LANG_D,
-        self::LANG_CLOJURE,
-        self::LANG_ELIXIR,
-        self::LANG_MYSQL,
-        self::LANG_RUST,
-        self::LANG_SCHEME,
-        self::LANG_COMMONLISP,
-        self::LANG_NADESIKO,
-        self::LANG_TYPESCRIPT,
-        self::LANG_PLAIN,
+        self::LANG_C => 'C',
+        self::LANG_CPP => 'C++',
+        self::LANG_OBJECTIVE_C => 'Objective-C',
+        self::LANG_JAVA => 'Java',
+        self::LANG_KOTLIN => 'Kotlin',
+        self::LANG_SCALA => 'Scala',
+        self::LANG_SWIFT => 'Swift',
+        self::LANG_CSHARP => 'C#',
+        self::LANG_GO => 'GO',
+        self::LANG_HASKELL => 'Haskell',
+        self::LANG_ERLANG => 'Erlang',
+        self::LANG_PERL => 'Perl',
+        self::LANG_PYTHON => 'Python2',
+        self::LANG_PYTHON3 => 'Python3',
+        self::LANG_RUBY => 'Ruby',
+        self::LANG_PHP => 'PHP',
+        self::LANG_BASH => 'Bash',
+        self::LANG_R => 'R',
+        self::LANG_JAVASCRIPT => 'JavaScript',
+        self::LANG_COFFEESCRIPT => 'CoffeeScript',
+        self::LANG_VB => 'VB',
+        self::LANG_COBOL => 'Cobol',
+        self::LANG_FSHARP => 'F#',
+        self::LANG_D => 'D',
+        self::LANG_CLOJURE => 'Clojure',
+        self::LANG_ELIXIR => 'Elixir',
+        self::LANG_MYSQL => 'MySQL',
+        self::LANG_RUST => 'Rust',
+        self::LANG_SCHEME => 'Scheme',
+        self::LANG_COMMON_LISP => 'CommonLisp',
+        self::LANG_NADESIKO => 'なでしこ',
+        self::LANG_TYPESCRIPT => 'TypeScript',
+        self::LANG_PLAIN => 'PlainText',
     ];
 
     /**
-     * @var string
+     * @var array - language constant => extension
+     *
+     */
+    public const EXTENSIONS = [
+        self::LANG_C => '.c',
+        self::LANG_CPP => '.cpp',
+        self::LANG_OBJECTIVE_C => '.m',
+        self::LANG_JAVA => '.java',
+        self::LANG_KOTLIN => '.kt',
+        self::LANG_SCALA => '.scala',
+        self::LANG_SWIFT => '.swift',
+        self::LANG_CSHARP => '.cs',
+        self::LANG_GO => '.go',
+        self::LANG_HASKELL => '.hs',
+        self::LANG_ERLANG => '.erl',
+        self::LANG_PERL => '.pl',
+        self::LANG_PYTHON => '.py',
+        self::LANG_PYTHON3 => '.py',
+        self::LANG_RUBY => '.rb',
+        self::LANG_PHP => '.php',
+        self::LANG_BASH => '.sh',
+        self::LANG_R => '.R',
+        self::LANG_JAVASCRIPT => '.js',
+        self::LANG_COFFEESCRIPT => '.coffee',
+        self::LANG_VB => '.vb',
+        self::LANG_COBOL => '.cob',
+        self::LANG_FSHARP => '.fs',
+        self::LANG_D => '.d',
+        self::LANG_CLOJURE => '.clj',
+        self::LANG_ELIXIR => '.exs',
+        self::LANG_MYSQL => '.sql',
+        self::LANG_RUST => '.rs',
+        self::LANG_SCHEME => '.scm',
+        self::LANG_COMMON_LISP => '.lisp',
+        self::LANG_NADESIKO => '.nako3',
+        self::LANG_TYPESCRIPT => '.ts',
+        self::LANG_PLAIN => '.txt',
+    ];
+
+    /**
+     * @var string - status running
+     */
+    public const STATUS_RUNNING = 'running';
+
+    /**
+     * @var string - status completed
+     */
+    public const STATUS_COMPLETED = 'completed';
+
+    /**
+     * @var string - paiza api key
      */
     protected static string $api_key = 'guest';
 
     /**
-     * @param string $source_code
-     * @param string $language
-     * @param string $input
-     * @param bool $longpoll
-     * @param int $longpoll_timeout
-     * @throws \ErrorException
+     * Start compiling and executing the program code.
+     *
+     * @param string $source_code - program code
+     * @param string $language - language constant
+     * @param string $input - String passed in standard input
+     * @param bool $longpoll - Wait for compilation and execution to complete.
+     * @param int $longpoll_timeout - longpoll timeout time.
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \JsonException
+     * @throws \ErrorException
      * @return \Suzunone\CodeRunner\Entities\OutputEntityInterface
      */
     public function create(string $source_code, string $language, string $input = '', bool $longpoll = false, int $longpoll_timeout = 10): Entities\OutputEntityInterface
@@ -130,6 +186,7 @@ class CodeRunner
     }
 
     /**
+     * Set the API Key.
      * @param string $api_key
      * @return void
      */
@@ -139,10 +196,52 @@ class CodeRunner
     }
 
     /**
+     * Get the API Key.
      * @return string
      */
     public static function getApiKey(): string
     {
         return self::$api_key;
+    }
+
+    /**
+     * Returns a template of the program code according to the language constants.
+     *
+     * @param string $language - language constants
+     * @throws \ErrorException
+     * @return string - program code
+     */
+    public function getTemplate(string $language): string
+    {
+        $tpl_dir = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'code_template' . DIRECTORY_SEPARATOR;
+
+        $ext = $this->getLangExtension($language);
+        if ($ext === '') {
+            // @codeCoverageIgnoreStart
+            throw new ErrorException('fatal: can not use lang ' . $language . '.');
+            // @codeCoverageIgnoreEnd
+        }
+
+        return file_get_contents($tpl_dir . $language . self::EXTENSIONS[$language]);
+    }
+
+    /**
+     * Get the program name according to the language constant.
+     * @param string $language
+     * @return string
+     */
+    public function getLanguageName(string $language): string
+    {
+        return self::LANGS[$language] ?? '';
+    }
+
+    /**
+     * Get the program file extension according to the language constant.
+     * @param string $language
+     * @return string
+     */
+    public function getLangExtension(string $language): string
+    {
+        return self::EXTENSIONS[$language] ?? '';
     }
 }

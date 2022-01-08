@@ -38,10 +38,13 @@ use Suzunone\CodeRunner\Entities\OutputEntityInterface;
  * @property-read string status - 'running', 'completed'
  * @property-read string error - error message.
  * @property-read bool is_error - if error is true
+ * @property-read bool is_completed
+ * @property-read bool is_running
  */
 class CreateEntity extends OutputEntityBase implements OutputEntityInterface
 {
     use OtherRequestTrait;
+
     /**
      * @param array $attribute
      */

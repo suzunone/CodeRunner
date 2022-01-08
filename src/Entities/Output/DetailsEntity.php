@@ -50,6 +50,8 @@ use Suzunone\CodeRunner\Entities\OutputEntityInterface;
  * @property-read int time                 - time to run(seconds)
  * @property-read int memory               - code memory usage(bytes)
  * @property-read string result            - code result('success', 'failure', 'error')
+ * @property-read bool is_completed
+ * @property-read bool is_running
  */
 class DetailsEntity extends OutputEntityBase implements OutputEntityInterface
 {

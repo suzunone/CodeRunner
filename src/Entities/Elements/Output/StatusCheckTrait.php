@@ -15,14 +15,12 @@
  * @see        https://github.com/suzunone/CodeRunner
  */
 
-namespace Suzunone\CodeRunner\Entities\Output;
+namespace Suzunone\CodeRunner\Entities\Elements\Output;
 
-use Suzunone\CodeRunner\Entities\Elements\Output\Status;
-use Suzunone\CodeRunner\Entities\OutputEntityBase;
-use Suzunone\CodeRunner\Entities\OutputEntityInterface;
+use Suzunone\CodeRunner\CodeRunner;
 
 /**
- * Class StatusEntity
+ * Trait StatusCheckTrait
  *
  * @category   CodeRunner
  * @package    Suzunone\CodeRunner\Entities\Output
@@ -34,22 +32,25 @@ use Suzunone\CodeRunner\Entities\OutputEntityInterface;
  * @link       https://github.com/suzunone/CodeRunner
  * @see        https://github.com/suzunone/CodeRunner
  * @since      2022/01/08
- * @property-read string id     - session id(This should be used in get_status/get_details API)
- * @property-read string status - 'running', 'completed'
- * @property-read string error  - error message.
- * @property-read bool is_error - if error is true
+ * @mixin \Suzunone\CodeRunner\Entities\Output\StatusEntity
  * @property-read bool is_completed
  * @property-read bool is_running
  */
-class StatusEntity extends OutputEntityBase implements OutputEntityInterface
+trait StatusCheckTrait
 {
-    use OtherRequestTrait;
+    /**
+     * @return bool
+     */
+    public function getIsCompletedAttribute(): bool
+    {
+        return $this->status === CodeRunner::STATUS_COMPLETED;
+    }
 
     /**
-     * @param array $attribute
+     * @return bool
      */
-    public function __construct(array $attribute)
+    public function getIsRunningAttribute(): bool
     {
-        $this->setResponse(new Status($attribute));
+        return $this->status === CodeRunner::STATUS_RUNNING;
     }
 }

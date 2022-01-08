@@ -10,12 +10,16 @@
          processIsolation="false"
          stopOnError="false"
          stopOnFailure="false"
-         syntaxCheck="true"
          verbose="true"
 >
+    <groups>
+        <exclude>
+            <group>large</group>
+        </exclude>
+    </groups>
     <testsuites>
         <testsuite name="Suzunone\CodeRunner">
-            <directory suffix="Test.php">tests</directory>
+            <directory suffix="Test.php">tests/Tests</directory>
         </testsuite>
     </testsuites>
     <filter>
@@ -29,7 +33,7 @@
 
     <logging>
         <log type="coverage-text" target="./covers/coverage" showUncoveredFiles="true" showOnlySummary="false"/>
-        <log type="coverage-html" target="./covers/suzunone/CodeRunner"/>
+        <log type="coverage-html" target="./covers/Suzunone/CodeRunner"/>
         <log type="testdox-text" target="php://stdout"/>
     </logging>
 </phpunit>

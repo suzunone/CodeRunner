@@ -52,4 +52,5 @@ use Suzunone\CodeRunner\Entities\Elements\ResponseElementInterface;
  */
 class Details extends ElementBase implements ResponseElementInterface
 {
+    use StatusCheckTrait;
 }

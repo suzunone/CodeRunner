@@ -40,6 +40,7 @@ use Suzunone\CodeRunner\Entities\Elements\ResponseElementInterface;
  */
 class Create extends ElementBase implements ResponseElementInterface
 {
+    use StatusCheckTrait;
     /**
      * @return bool
      */

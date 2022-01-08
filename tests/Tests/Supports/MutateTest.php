@@ -21,11 +21,28 @@ use PHPUnit\Framework\TestCase;
 use Suzunone\CodeRunner\Supports\MutateTrait;
 
 /**
+ * Class MutateTest
+ *
+ * @category   CodeRunner
+ * @package    Tests\Suzunone\CodeRunner\Supports
+ * @subpackage Tests\Suzunone\CodeRunner\Supports
+ * @author     suzunone<suzunone.eleven@gmail.com>
+ * @copyright  Project CodeRunner
+ * @license    BSD 3-Clause License
+ * @version    1.0
+ * @link       https://github.com/suzunone/CodeRunner
+ * @see        https://github.com/suzunone/CodeRunner
+ * @since      2022/01/09
+ *
  * @internal
  * @coversNothing
  */
 class MutateTest extends TestCase
 {
+    /**
+     * @return void
+     * @covers \Suzunone\CodeRunner\Supports\MutateTrait
+     */
     public function testGetAttribute()
     {
         $testMutate = new testMutate();

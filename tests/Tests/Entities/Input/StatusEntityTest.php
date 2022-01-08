@@ -21,6 +21,19 @@ use PHPUnit\Framework\TestCase;
 use Suzunone\CodeRunner\Entities\Input\StatusEntity;
 
 /**
+ * Class StatusEntityTest
+ *
+ * @category   CodeRunner
+ * @package    Tests\Suzunone\CodeRunner\Entities\Input\StatusEntity
+ * @subpackage Tests\Suzunone\CodeRunner\Entities\Input\StatusEntity
+ * @author     suzunone<suzunone.eleven@gmail.com>
+ * @copyright  Project CodeRunner
+ * @license    BSD 3-Clause License
+ * @version    1.0
+ * @link       https://github.com/suzunone/CodeRunner
+ * @see        https://github.com/suzunone/CodeRunner
+ * @since      2022/01/09
+ *
  * @internal
  * @coversNothing
  */
@@ -28,6 +41,19 @@ class StatusEntityTest extends TestCase
 {
     /**
      * @return void
+     * @covers \Suzunone\CodeRunner\Entities\Elements\ElementBase
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Input\Create
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Input\Status
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\Create
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\Status
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\StatusCheckTrait
+     * @covers \Suzunone\CodeRunner\Entities\Input\CreateEntity
+     * @covers \Suzunone\CodeRunner\Entities\Input\StatusEntity
+     * @covers \Suzunone\CodeRunner\Entities\InputEntityBase
+     * @covers \Suzunone\CodeRunner\Entities\Output\CreateEntity
+     * @covers \Suzunone\CodeRunner\Entities\Output\StatusEntity
+     * @covers \Suzunone\CodeRunner\Entities\OutputEntityBase
+     * @covers \Suzunone\CodeRunner\Supports\MutateTrait
      */
     public function testSet()
     {
@@ -39,6 +65,19 @@ class StatusEntityTest extends TestCase
 
     /**
      * @return void
+     * @covers \Suzunone\CodeRunner\Entities\Elements\ElementBase
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Input\Create
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Input\Status
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\Create
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\Status
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\StatusCheckTrait
+     * @covers \Suzunone\CodeRunner\Entities\Input\CreateEntity
+     * @covers \Suzunone\CodeRunner\Entities\Input\StatusEntity
+     * @covers \Suzunone\CodeRunner\Entities\InputEntityBase
+     * @covers \Suzunone\CodeRunner\Entities\Output\CreateEntity
+     * @covers \Suzunone\CodeRunner\Entities\Output\StatusEntity
+     * @covers \Suzunone\CodeRunner\Entities\OutputEntityBase
+     * @covers \Suzunone\CodeRunner\Supports\MutateTrait
      */
     public function testOffsetSet()
     {
@@ -50,6 +89,19 @@ class StatusEntityTest extends TestCase
 
     /**
      * @return void
+     * @covers \Suzunone\CodeRunner\Entities\Elements\ElementBase
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Input\Create
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Input\Status
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\Create
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\Status
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\StatusCheckTrait
+     * @covers \Suzunone\CodeRunner\Entities\Input\CreateEntity
+     * @covers \Suzunone\CodeRunner\Entities\Input\StatusEntity
+     * @covers \Suzunone\CodeRunner\Entities\InputEntityBase
+     * @covers \Suzunone\CodeRunner\Entities\Output\CreateEntity
+     * @covers \Suzunone\CodeRunner\Entities\Output\StatusEntity
+     * @covers \Suzunone\CodeRunner\Entities\OutputEntityBase
+     * @covers \Suzunone\CodeRunner\Supports\MutateTrait
      */
     public function testOffsetUnset()
     {
@@ -62,12 +114,25 @@ class StatusEntityTest extends TestCase
     /**
      *
      * @return void
+     * @covers \Suzunone\CodeRunner\Entities\Elements\ElementBase
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Input\Create
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Input\Status
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\Create
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\Status
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\StatusCheckTrait
+     * @covers \Suzunone\CodeRunner\Entities\Input\CreateEntity
+     * @covers \Suzunone\CodeRunner\Entities\Input\StatusEntity
+     * @covers \Suzunone\CodeRunner\Entities\InputEntityBase
+     * @covers \Suzunone\CodeRunner\Entities\Output\CreateEntity
+     * @covers \Suzunone\CodeRunner\Entities\Output\StatusEntity
+     * @covers \Suzunone\CodeRunner\Entities\OutputEntityBase
+     * @covers \Suzunone\CodeRunner\Supports\MutateTrait
      */
     public function testIssetUnset()
     {
         $obj = new StatusEntity(['id' => 'hogehoge']);
         $this->assertTrue(isset($obj->id));
-        $obj->id = null;
+        unset($obj->id);
         $this->assertNull($obj->id);
         $this->assertFalse(isset($obi->id));
     }
@@ -75,6 +140,19 @@ class StatusEntityTest extends TestCase
     /**
      *
      * @return void
+     * @covers \Suzunone\CodeRunner\Entities\Elements\ElementBase
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Input\Create
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Input\Status
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\Create
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\Status
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\StatusCheckTrait
+     * @covers \Suzunone\CodeRunner\Entities\Input\CreateEntity
+     * @covers \Suzunone\CodeRunner\Entities\Input\StatusEntity
+     * @covers \Suzunone\CodeRunner\Entities\InputEntityBase
+     * @covers \Suzunone\CodeRunner\Entities\Output\CreateEntity
+     * @covers \Suzunone\CodeRunner\Entities\Output\StatusEntity
+     * @covers \Suzunone\CodeRunner\Entities\OutputEntityBase
+     * @covers \Suzunone\CodeRunner\Supports\MutateTrait
      */
     public function testToJson()
     {
@@ -86,6 +164,19 @@ class StatusEntityTest extends TestCase
     /**
      *
      * @return void
+     * @covers \Suzunone\CodeRunner\Entities\Elements\ElementBase
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Input\Create
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Input\Status
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\Create
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\Status
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\StatusCheckTrait
+     * @covers \Suzunone\CodeRunner\Entities\Input\CreateEntity
+     * @covers \Suzunone\CodeRunner\Entities\Input\StatusEntity
+     * @covers \Suzunone\CodeRunner\Entities\InputEntityBase
+     * @covers \Suzunone\CodeRunner\Entities\Output\CreateEntity
+     * @covers \Suzunone\CodeRunner\Entities\Output\StatusEntity
+     * @covers \Suzunone\CodeRunner\Entities\OutputEntityBase
+     * @covers \Suzunone\CodeRunner\Supports\MutateTrait
      */
     public function testToString()
     {
@@ -94,6 +185,22 @@ class StatusEntityTest extends TestCase
         $this->assertEquals('{"id":"hogehoge"}', (string)$obj);
     }
 
+    /**
+     * @return void
+     * @covers \Suzunone\CodeRunner\Entities\Elements\ElementBase
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Input\Create
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Input\Status
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\Create
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\Status
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\StatusCheckTrait
+     * @covers \Suzunone\CodeRunner\Entities\Input\CreateEntity
+     * @covers \Suzunone\CodeRunner\Entities\Input\StatusEntity
+     * @covers \Suzunone\CodeRunner\Entities\InputEntityBase
+     * @covers \Suzunone\CodeRunner\Entities\Output\CreateEntity
+     * @covers \Suzunone\CodeRunner\Entities\Output\StatusEntity
+     * @covers \Suzunone\CodeRunner\Entities\OutputEntityBase
+     * @covers \Suzunone\CodeRunner\Supports\MutateTrait
+     */
     public function testOffset()
     {
         $obj = new StatusEntity([]);
@@ -107,6 +214,22 @@ class StatusEntityTest extends TestCase
         $this->assertFalse(isset($obj['id']));
     }
 
+    /**
+     * @return void
+     * @covers \Suzunone\CodeRunner\Entities\Elements\ElementBase
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Input\Create
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Input\Status
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\Create
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\Status
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\StatusCheckTrait
+     * @covers \Suzunone\CodeRunner\Entities\Input\CreateEntity
+     * @covers \Suzunone\CodeRunner\Entities\Input\StatusEntity
+     * @covers \Suzunone\CodeRunner\Entities\InputEntityBase
+     * @covers \Suzunone\CodeRunner\Entities\Output\CreateEntity
+     * @covers \Suzunone\CodeRunner\Entities\Output\StatusEntity
+     * @covers \Suzunone\CodeRunner\Entities\OutputEntityBase
+     * @covers \Suzunone\CodeRunner\Supports\MutateTrait
+     */
     public function testToArray()
     {
         $obj = new StatusEntity(['id' => 'hogehoge']);
@@ -114,6 +237,22 @@ class StatusEntityTest extends TestCase
         $this->assertEquals(['id' => 'hogehoge'], $obj->toArray());
     }
 
+    /**
+     * @return void
+     * @covers \Suzunone\CodeRunner\Entities\Elements\ElementBase
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Input\Create
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Input\Status
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\Create
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\Status
+     * @covers \Suzunone\CodeRunner\Entities\Elements\Output\StatusCheckTrait
+     * @covers \Suzunone\CodeRunner\Entities\Input\CreateEntity
+     * @covers \Suzunone\CodeRunner\Entities\Input\StatusEntity
+     * @covers \Suzunone\CodeRunner\Entities\InputEntityBase
+     * @covers \Suzunone\CodeRunner\Entities\Output\CreateEntity
+     * @covers \Suzunone\CodeRunner\Entities\Output\StatusEntity
+     * @covers \Suzunone\CodeRunner\Entities\OutputEntityBase
+     * @covers \Suzunone\CodeRunner\Supports\MutateTrait
+     */
     public function testJsonSerialize()
     {
         $obj = new StatusEntity(['id' => 'hogehoge']);
