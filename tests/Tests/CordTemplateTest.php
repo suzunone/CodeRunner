@@ -37,6 +37,7 @@ use Suzunone\CodeRunner\Entities\Output\CreateEntity;
  *
  * @internal
  * @coversNothing
+ * @small
  */
 class CordTemplateTest extends TestCase
 {

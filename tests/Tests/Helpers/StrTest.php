@@ -21,11 +21,28 @@ use PHPUnit\Framework\TestCase;
 use Suzunone\CodeRunner\Helpers\Str;
 
 /**
+ * Class StrTest
+ *
+ * @category   CodeRunner
+ * @package    Tests\Suzunone\CodeRunner\Helpers
+ * @subpackage Tests\Suzunone\CodeRunner\Helpers
+ * @author     suzunone<suzunone.eleven@gmail.com>
+ * @copyright  Project CodeRunner
+ * @license    BSD 3-Clause License
+ * @version    1.0
+ * @link       https://github.com/suzunone/CodeRunner
+ * @see        https://github.com/suzunone/CodeRunner
+ * @since      2022/01/09
  * @internal
  * @coversNothing
+ * @small
  */
 class StrTest extends TestCase
 {
+    /**
+     * @return void
+     * @covers \Suzunone\CodeRunner\Helpers\Str
+     */
     public function testStudly()
     {
         $this->assertSame('SuzunoneCODERunner', Str::studly('suzunone_c_o_d_e_runner'));

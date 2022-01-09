@@ -40,6 +40,7 @@ use Suzunone\CodeRunner\Entities\Output\StatusEntity;
  *
  * @internal
  * @coversNothing
+ * @small
  */
 class CodeRunnerTest extends TestCase
 {

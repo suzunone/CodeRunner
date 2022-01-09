@@ -36,6 +36,7 @@ use Suzunone\CodeRunner\Entities\Input\StatusEntity;
  *
  * @internal
  * @coversNothing
+ * @small
  */
 class StatusEntityTest extends TestCase
 {

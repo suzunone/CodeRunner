@@ -36,6 +36,7 @@ use Suzunone\CodeRunner\Supports\MutateTrait;
  *
  * @internal
  * @coversNothing
+ * @small
  */
 class MutateTest extends TestCase
 {

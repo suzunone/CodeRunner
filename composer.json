@@ -14,6 +14,9 @@
             "email": "suzunone.eleven@gmail.com"
         }
     ],
+    "scripts": {
+        "test": ["@php vendor/bin/phpunit --group=small,large"]
+    },
     "require": {
         "php": "^7.4|^8.0",
         "ext-json": "*",
