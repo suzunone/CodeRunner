@@ -112,7 +112,6 @@ class CodeRunner
 
     /**
      * @var array - language constant => extension
-     *
      */
     public const EXTENSIONS = [
         self::LANG_C => '.c',

@@ -1,5 +1,6 @@
 CodeRunner
 =========================================
+![example workflow](https://github.com/suzunone/CodeRunner/actions/workflows/php.yml/badge.svg)
 
 Introduction
 -----------------------------------------
