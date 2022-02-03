@@ -150,6 +150,45 @@ class CodeRunner
     ];
 
     /**
+     * @var array - language constant => mimetype
+     */
+    public const CODE_MIME = [
+        self::LANG_C => 'text/x-csrc',
+        self::LANG_CPP => 'text/x-c++src',
+        self::LANG_OBJECTIVE_C => 'text/x-objectivec',
+        self::LANG_JAVA => 'text/x-java',
+        self::LANG_KOTLIN => 'Kotlin',
+        self::LANG_SCALA => 'text/x-scala',
+        self::LANG_SWIFT => 'text/x-swift',
+        self::LANG_CSHARP => 'text/x-csharp',
+        self::LANG_GO => 'text/x-go',
+        self::LANG_HASKELL => 'text/x-haskell',
+        self::LANG_ERLANG => 'text/x-erlang',
+        self::LANG_PERL => 'text/x-perl',
+        self::LANG_PYTHON => 'text/x-python',
+        self::LANG_PYTHON3 => 'text/x-python',
+        self::LANG_RUBY => 'text/x-ruby',
+        self::LANG_PHP => 'text/x-php',
+        self::LANG_BASH => 'text/x-sh',
+        self::LANG_R => 'text/x-rsrc',
+        self::LANG_JAVASCRIPT => 'text/javascript',
+        self::LANG_COFFEESCRIPT => 'text/javascript',
+        self::LANG_VB => 'text/x-vb',
+        self::LANG_COBOL => 'text/x-cobol"',
+        self::LANG_FSHARP => 'text/x-fsharp',
+        self::LANG_D => 'text/x-d',
+        self::LANG_CLOJURE => 'text/x-clojure',
+        self::LANG_ELIXIR => 'text/x-elixir',
+        self::LANG_MYSQL => 'text/x-mysql',
+        self::LANG_RUST => 'text/x-rustsrc',
+        self::LANG_SCHEME => 'text/x-scheme',
+        self::LANG_COMMON_LISP => 'text/x-common-lisp',
+        self::LANG_NADESIKO => 'text/x-nadeshiko',
+        self::LANG_TYPESCRIPT => 'text/typescript',
+        self::LANG_PLAIN => 'text/plain',
+    ];
+
+    /**
      * @var string - status running
      */
     public const STATUS_RUNNING = 'running';
